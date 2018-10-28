@@ -1,6 +1,6 @@
 /**
  * Controller interface.
- * 
+ *
  * @author Derek Opdycke
  *
  * @mathmodel <pre>
@@ -30,7 +30,8 @@ public interface YOLOBboxController {
     void processResetEvent();
 
     /**
-     * Processes event to browse for the location of a video file and insert the location into the corresponding textbox.
+     * Processes event to browse for the location of a video file and insert the
+     * location into the corresponding textbox.
      *
      * @param input
      *            string to be copied
@@ -45,7 +46,8 @@ public interface YOLOBboxController {
     void processBrowseVideoLocationEvent();
 
     /**
-     * Processes event to browse for the location of a folder to send output files to.
+     * Processes event to browse for the location of a folder to send output
+     * files to.
      *
      * @param input
      *            string to be copied

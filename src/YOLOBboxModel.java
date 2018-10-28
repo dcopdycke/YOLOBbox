@@ -2,55 +2,31 @@
  * Model interface.
  *
  * @author Derek Opdycke
- *
- *
- * @mathmodel <pre>
- * type DemoModel is modeled by
- *   (input: string of character,
- *    output: string of character)
- * </pre>
- * @initially <pre>
- * ():
- *   ensures
- *     this = ("", "")
- * </pre>
  */
 public interface YOLOBboxModel {
 
-    /**
-     * Reports this.input.
-     *
-     * @return this.input
-     * @ensures input = this.input
-     */
-    String input();
+    String videoLocation();
 
-    /**
-     * Sets this.input to argument.
-     *
-     * @param input
-     *            new this.input value
-     * @replaces this.input
-     * @ensures this.input = input
-     */
-    void setInput(String input);
+    void setVideoLocation(String vl);
 
-    /**
-     * Reports this.output.
-     *
-     * @return this.output
-     * @ensures output = this.output
-     */
-    String output();
+    String exportLocation();
 
-    /**
-     * Sets this.output to argument.
-     *
-     * @param output
-     *            new this.output value
-     * @replaces this.output
-     * @ensures this.output = output
-     */
-    void setOutput(String output);
+    void setExportLocation(String el);
+
+    int itemIndex();
+
+    void setItemIndex(int x);
+
+    int currentFrame();
+
+    void setCurrentFrame(int x);
+
+    int frameRate();
+
+    void setFrameRate(int x);
+
+    int frameJump();
+
+    void setFrameJump(int x);
 
 }

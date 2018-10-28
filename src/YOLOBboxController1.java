@@ -1,8 +1,7 @@
 
-
 /**
  * Controller class.
- * 
+ *
  * @author Derek Opdycke
  */
 public final class YOLOBboxController1 implements YOLOBboxController {
@@ -19,28 +18,39 @@ public final class YOLOBboxController1 implements YOLOBboxController {
 
     /**
      * Updates view to display model.
-     * 
+     *
      * @param model
      *            the model
      * @param view
      *            the view
      */
-    private static void updateViewToMatchModel(YOLOBboxModel model, YOLOBboxView view) {
+    private static void updateViewToMatchModel(YOLOBboxModel model,
+            YOLOBboxView view) {
         /*
          * Get model info
          */
         //String input = model.input();
         //String output = model.output();
+        String videoLocation = model.videoLocation();
+        String exportLocation = model.exportLocation();
+        int itemIndex = model.itemIndex();
+        int currentFrame = model.currentFrame();
+        int frameRate = model.frameRate();
+        int frameJump = model.frameJump();
         /*
          * Update view to reflect changes in model
          */
         //view.updateInputDisplay(input);
         //view.updateOutputDisplay(output);
+        view.updateVideoLocationTextDisplay(videoLocation);
+        view.updateExportLocationTextDisplay(exportLocation);
+        view.updateItemIndexTextDisplay(itemIndex);
+
     }
 
     /**
      * Constructor; connects {@code this} to the model and view it coordinates.
-     * 
+     *
      * @param model
      *            model to connect to
      * @param view
@@ -54,7 +64,6 @@ public final class YOLOBboxController1 implements YOLOBboxController {
          */
         updateViewToMatchModel(this.model, this.view);
     }
-    
 
     /**
      * Processes reset event.
@@ -64,8 +73,8 @@ public final class YOLOBboxController1 implements YOLOBboxController {
         /*
          * Update model in response to this event
          */
-        this.model.setInput("");
-        this.model.setOutput("");
+        this.model.setVideoLocation("");
+        this.model.setExportLocation("");
         /*
          * Update view to reflect changes in model
          */
@@ -73,8 +82,8 @@ public final class YOLOBboxController1 implements YOLOBboxController {
     }
 
     /**
-     * Processes copy event.
-     * 
+     * Processes browseVideoLocation event.
+     *
      * @param input
      *            value of input text (provided by view)
      */
@@ -92,15 +101,15 @@ public final class YOLOBboxController1 implements YOLOBboxController {
     }
 
     /**
-     * Processes reset event.
+     * Processes BrowseExportLocation event.
      */
     @Override
     public void processBrowseExportLocationEvent() {
         /*
          * Update model in response to this event
          */
-        this.model.setInput("");
-        this.model.setOutput("");
+        this.model.setVideoLocation("");
+        this.model.setExportLocation("");
         /*
          * Update view to reflect changes in model
          */
@@ -108,15 +117,15 @@ public final class YOLOBboxController1 implements YOLOBboxController {
     }
 
     /**
-     * Processes reset event.
+     * Processes export event.
      */
     @Override
     public void processExportEvent() {
         /*
          * Update model in response to this event
          */
-        this.model.setInput("");
-        this.model.setOutput("");
+        this.model.setVideoLocation("");
+        this.model.setExportLocation("");
         /*
          * Update view to reflect changes in model
          */
@@ -124,15 +133,15 @@ public final class YOLOBboxController1 implements YOLOBboxController {
     }
 
     /**
-     * Processes reset event.
+     * Processes framesBack event.
      */
     @Override
     public void processFramesBackEvent() {
         /*
          * Update model in response to this event
          */
-        this.model.setInput("");
-        this.model.setOutput("");
+        this.model.setVideoLocation("");
+        this.model.setExportLocation("");
         /*
          * Update view to reflect changes in model
          */
@@ -140,19 +149,35 @@ public final class YOLOBboxController1 implements YOLOBboxController {
     }
 
     /**
-     * Processes reset event.
+     * Processes frameForward event.
      */
     @Override
     public void processFramesForwardEvent() {
         /*
          * Update model in response to this event
          */
-        this.model.setInput("");
-        this.model.setOutput("");
+        this.model.setVideoLocation("");
+        this.model.setExportLocation("");
         /*
          * Update view to reflect changes in model
          */
         updateViewToMatchModel(this.model, this.view);
+    }
+
+    /**
+     * Processes the CV by taking the given bboxes and filling in the frames
+     * between
+     */
+    private void processCV() {
+
+    }
+
+    /**
+     * Uses the bboxes find the center x and y and the width and height for a
+     * given frame.
+     */
+    private void findYOLOValues(int frame) {
+
     }
 
 }
